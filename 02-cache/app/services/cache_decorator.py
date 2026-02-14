@@ -4,6 +4,7 @@ import json
 from app.core.redis_client import redis_client
 
 def cache_result(ttl=300):
+    """Cache function results with specified TTL (default 5 minutes)"""
     def decorator(func):
         @wraps(func)
         def wrapper(*args, **kwargs):
