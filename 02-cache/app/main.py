@@ -2,7 +2,7 @@ from contextlib import asynccontextmanager
 from fastapi import FastAPI
 
 from app.core.redis_client import test_connection
-from app.routes import users, compute
+from app.routes import users, compute, cache
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
@@ -19,3 +19,4 @@ app = FastAPI(
 
 app.include_router(users.router)
 app.include_router(compute.router)
+app.include_router(cache.router)
