@@ -1,189 +1,196 @@
-# FastAPI Redis Learning Repository
+# FastAPI-Redis Grind
 
-A structured learning path for mastering Redis integration with FastAPI applications, from fundamental concepts to production-ready implementations.
+A comprehensive collection of projects designed to master Redis and FastAPI integration through progressive, hands-on development.
 
 ## Overview
 
-This repository provides a comprehensive curriculum for understanding and implementing Redis with FastAPI. The content progresses from basic Redis operations to advanced patterns used in production systems.
-
-## Repository Structure
-
-```
-fastapi-redis-grind/
-├── 01-redis-fundamentals/
-├── 02-fastapi-redis-basics/
-├── 03-caching-patterns/
-├── 04-session-management/
-├── 05-rate-limiting/
-├── 06-real-time-features/
-├── 07-advanced-patterns/
-├── 08-production-practices/
-├── 09-projects/
-└── README.md
-```
-
-## Learning Path
-
-### Phase 1: Redis Fundamentals
-
-Master Redis data structures and operations:
-- Strings for simple key-value storage and atomic counters
-- Lists for queues and activity feeds
-- Sets for unique collections and membership testing
-- Sorted Sets for rankings and leaderboards
-- Hashes for object storage
-- Key expiration and Time-To-Live management
-- Pub/Sub for message broadcasting
-- Transactions for atomic operations
-
-### Phase 2: FastAPI Integration Basics
-
-Learn to integrate Redis with FastAPI:
-- Connection management and pooling strategies
-- Synchronous vs asynchronous Redis operations
-- Dependency injection for Redis clients
-- Configuration management for different environments
-- Health check implementations
-
-### Phase 3: Caching Patterns
-
-Implement effective caching strategies:
-- Cache-aside pattern for on-demand caching
-- Read-through and write-through caching
-- Write-behind caching for async database updates
-- API response caching
-- Database query result caching
-- Cache invalidation strategies
-- Cache stampede prevention
-- Cache warming techniques
-
-### Phase 4: Session Management
-
-Build robust session systems:
-- Session storage architecture
-- User authentication sessions
-- Shopping cart persistence
-- Session security practices
-- Distributed session handling across servers
-- Session expiration policies
-
-### Phase 5: Rate Limiting
-
-Implement rate limiting and throttling:
-- Fixed window algorithm
-- Sliding window algorithm
-- Token bucket algorithm
-- Leaky bucket algorithm
-- Per-user, per-IP, and per-endpoint limiting
-- Rate limit middleware development
-- DDoS protection strategies
-- Quota management systems
-
-### Phase 6: Real-Time Features
-
-Create real-time applications:
-- Redis Pub/Sub with FastAPI
-- WebSocket integration and connection management
-- Real-time notification systems
-- Chat application architecture
-- User presence and online status tracking
-- Live data updates and feeds
-
-### Phase 7: Advanced Patterns
-
-Master complex Redis implementations:
-- Distributed locks with Redlock algorithm
-- Job queues and background task scheduling
-- Priority queues with sorted sets
-- Geospatial indexing and proximity searches
-- Leaderboard systems with rankings
-- Bloom filters for probabilistic checks
-- Redis Streams for event sourcing
-- Lua scripting for atomic complex operations
-- HyperLogLog for cardinality estimation
-
-### Phase 8: Production Practices
-
-Prepare for production deployment:
-- Memory management and eviction policies
-- Connection pool optimization
-- Error handling and circuit breaker patterns
-- Graceful degradation strategies
-- Monitoring and metrics collection
-- Performance tuning and benchmarking
-- Security hardening and authentication
-- High availability with Redis Sentinel
-- Horizontal scaling with Redis Cluster
-- Backup strategies and disaster recovery
-- Data persistence configurations
-
-### Phase 9: Real-World Projects
-
-Apply knowledge in complete applications:
-- High-performance API with multi-layer caching
-- Real-time chat application with presence
-- URL shortener with analytics
-- E-commerce cart and session management
-- Social media feed with fanout pattern
-- Gaming leaderboard with real-time updates
-- Distributed job queue system
-- API rate limiter as a service
-
-## Core Concepts Covered
-
-### Redis Operations
-- CRUD operations for all data types
-- Atomic operations and transactions
-- Pattern matching and key scanning
-- Pipeline operations for batch processing
-- Blocking vs non-blocking commands
-
-### Integration Patterns
-- Dependency injection in FastAPI
-- Async/await patterns with Redis
-- Error handling and retry logic
-- Connection lifecycle management
-- Serialization strategies
-
-### Performance Optimization
-- Connection pooling best practices
-- Pipeline usage for bulk operations
-- Memory optimization techniques
-- Query optimization strategies
-- Monitoring and profiling
-
-### Security
-- Authentication and access control
-- Network security configurations
-- Data encryption in transit
-- Input validation and sanitization
-- Secure key management
-
-## Expected Outcomes
-
-Upon completion of this learning path, I will be able to:
-
-- Understand when and why to use Redis in application architecture
-- Implement efficient caching strategies to improve application performance
-- Build session management systems for stateful applications
-- Create rate limiting and throttling mechanisms
-- Develop real-time features using Redis Pub/Sub and Streams
-- Implement distributed systems patterns with Redis
-- Configure and optimize Redis for production environments
-- Monitor, debug, and troubleshoot Redis-based applications
-- Design and build scalable, high-performance APIs with FastAPI and Redis
+This repository contains 8 projects that systematically build your Redis skills and API development expertise. Each project introduces new Redis data structures and patterns, progressing from simple caching to advanced distributed systems.
 
 ## Prerequisites
 
-- Working knowledge of Python
-- Understanding of FastAPI fundamentals
-- Basic knowledge of REST API design
-- Familiarity with asynchronous programming concepts
+- Python 3.9+
+- Basic understanding of REST APIs
+- Redis installed locally or access to a Redis instance
+- Familiarity with key-value stores (helpful but not required)
+- Understanding of async/await in Python (for Projects 6-8)
 
-## License
+## Getting Started
 
-MIT License
+Each project is self-contained in its own directory with dedicated setup instructions and API endpoints.
+```bash
+git clone https://github.com/Jamezfn/fastapi-redis-grind.git
+cd fastapi-redis-grind
+```
+
+## Projects
+
+### Project 1: Simple Cache API
+**Core Concepts**: Strings, GET/SET, basic caching
+
+A basic API that caches expensive computations and API responses.
+
+**Key Learning**:
+- Connecting to Redis with redis-py
+- Basic string operations (GET, SET, DEL)
+- Setting expiration with TTL
+- Cache hit/miss patterns
+- When to use caching
 
 ---
 
-This is an educational repository. Content is structured for progressive learning and practical application.
+### Project 2: User Session Management
+**Core Concepts**: Expiration, TTL, session tokens
+
+A user authentication system with Redis-based session storage.
+
+**Key Learning**:
+- SETEX and EXPIRE commands
+- Session token generation
+- Automatic session expiration
+- Session renewal patterns
+- Deleting sessions on logout
+
+---
+
+### Project 3: Rate Limiter
+**Core Concepts**: Counters, INCR, sliding window
+
+An API rate limiting system to prevent abuse.
+
+**Key Learning**:
+- Atomic increment operations (INCR)
+- Fixed window vs sliding window algorithms
+- Using EXPIRE with counters
+- Per-user and per-IP rate limiting
+- Bucket-based rate limiting
+
+---
+
+### Project 4: Real-time Leaderboard
+**Core Concepts**: Sorted Sets, ZADD, ZRANGE
+
+A gaming leaderboard with real-time score updates and rankings.
+
+**Key Learning**:
+- Sorted Sets (ZADD, ZINCRBY, ZRANGE)
+- Getting rank of a user (ZRANK, ZREVRANK)
+- Range queries and pagination
+- Leaderboard patterns (top N, around user)
+- Score updates and tie-breaking
+
+---
+
+### Project 5: Shopping Cart System
+**Core Concepts**: Hashes, complex data structures
+
+An e-commerce shopping cart with item management.
+
+**Key Learning**:
+- Hash operations (HSET, HGET, HGETALL, HDEL)
+- Storing structured data in hashes
+- Incrementing hash fields (HINCRBY)
+- Cart expiration strategies
+- Converting between hashes and objects
+
+---
+
+### Project 6: Background Task Queue
+**Core Concepts**: Lists, LPUSH/RPOP, async workers
+
+A job queue system for processing background tasks with async workers.
+
+**Key Learning**:
+- Lists as queues (LPUSH, RPOP, BLPOP)
+- Producer-consumer pattern
+- Blocking operations for workers
+- Task priority queues
+- Using async redis-py for concurrent processing
+- Dead letter queues for failed tasks
+
+---
+
+### Project 7: Real-time Chat with Pub/Sub
+**Core Concepts**: Pub/Sub, channels, async messaging
+
+A real-time chat application using Redis Pub/Sub with WebSockets.
+
+**Key Learning**:
+- Pub/Sub pattern (PUBLISH, SUBSCRIBE)
+- Channel-based messaging
+- Pattern subscriptions
+- Async Pub/Sub with redis-py
+- WebSocket integration with FastAPI
+- Message broadcasting
+- Online user tracking with Sets
+
+---
+
+### Project 8: Distributed Lock System
+**Core Concepts**: Distributed locks, transactions, Lua scripts
+
+A resource booking system with distributed locking to prevent race conditions.
+
+**Key Learning**:
+- SET with NX and EX options for locks
+- Lock acquisition and release patterns
+- Redlock algorithm basics
+- WATCH and MULTI/EXEC for transactions
+- Lua scripts for atomic operations
+- Lock timeout and renewal
+- Handling deadlocks
+
+---
+
+## Technical Stack
+
+- **FastAPI**: Modern Python web framework (supports both sync and async)
+- **Redis**: In-memory data structure store
+- **redis-py**: Python Redis client (Projects 1-5: sync, Projects 6-8: async)
+- **Pydantic**: Data validation and settings management
+
+## Learning Path
+
+Each project is designed to be completed sequentially, building on Redis concepts from previous projects.
+
+**Progression**:
+- **Projects 1-5**: Use sync redis-py to master core Redis data structures
+- **Projects 6-8**: Transition to async redis-py for concurrent operations and real-time features
+
+**Recommended approach**:
+1. Complete each project fully before moving to the next
+2. Implement all API endpoints for each project
+3. Experiment with different Redis data structures for the same problem
+4. Use Redis CLI to inspect data during development
+5. Monitor commands with MONITOR for debugging
+6. Test expiration and TTL behavior
+7. Compare Redis solutions to database-backed approaches
+
+## Key Concepts Covered
+
+- **Data Structures**: Strings, Hashes, Lists, Sets, Sorted Sets
+- **Caching Patterns**: Cache-aside, write-through, cache invalidation
+- **Expiration**: TTL, EXPIRE, SETEX, automatic cleanup
+- **Atomic Operations**: INCR, HINCRBY, ZINCRBY for race-free updates
+- **Advanced Patterns**: Rate limiting, leaderboards, queues, locks
+- **Pub/Sub**: Real-time messaging and event broadcasting
+- **Transactions**: MULTI/EXEC, WATCH for optimistic locking
+- **Lua Scripting**: Atomic multi-command operations
+- **Performance**: Pipeline operations, connection pooling
+- **Distributed Systems**: Distributed locks, coordination
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit pull requests with improvements, additional projects, or documentation enhancements.
+
+## License
+
+MIT License - feel free to use these projects for learning and development.
+
+## Resources
+
+- [Redis Documentation](https://redis.io/docs/)
+- [FastAPI Documentation](https://fastapi.tiangolo.com/)
+- [redis-py Documentation](https://redis-py.readthedocs.io/)
+- [Redis University](https://university.redis.com/) - Free courses
+- [Pydantic Documentation](https://docs.pydantic.dev/)
+- [Redis CLI](https://redis.io/docs/ui/cli/) - Command-line interface
