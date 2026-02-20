@@ -4,6 +4,7 @@ import logging
 
 from app.redis_client import create_redis
 from app.config import settings
+from app.routers.bitcoin import router
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -18,3 +19,5 @@ async def lifespan(app: FastAPI):
     await app.state.redis.aclose()
 
 app = FastAPI(title="Bitcoin Sentiment API", lifespan=lifespan)
+
+app.include_router(router=router)
