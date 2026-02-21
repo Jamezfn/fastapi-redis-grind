@@ -18,6 +18,16 @@ class Settings(BaseSettings):
         alias="SENTIMENT_API_URL"
     )
 
+    hourly_bucket: str = Field(
+        default="3600000",
+        alias="HOURLY_BUCKET"
+    )
+
+    cache_ttl: str = Field(
+        default=120,
+        alias="CACHE_TTL"
+    )
+
     model_config = SettingsConfigDict(
         env_file=".env",
         env_file_encoding="utf-8",

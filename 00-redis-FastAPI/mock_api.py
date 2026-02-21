@@ -14,7 +14,7 @@ def generate_entry(offset_seconds: int):
 
     return {
         "count": count,
-        "timestamp": str(ts.isoformat()),
+        "timestamp": ts.timestamp(),
         "rate": round(random.uniform(-0.05, 0.05), 2),
         "last": round(random.uniform(-0.8, 0.8), 2),
         "sum": round(mean * count, 2),

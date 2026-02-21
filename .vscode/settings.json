@@ -1,3 +1,4 @@
 {
-    "python.analysis.typeEvaluation.strictSetInference": true
+    "python.analysis.typeEvaluation.strictSetInference": true,
+    "python.REPL.enableREPLSmartSend": false
 }
